@@ -1,4 +1,5 @@
 import time
+from playsound import playsound
 class tempo:
     def timer(tdt,tdd,tdf):
         #tdt = tempo de trabalho tdd = tempo de descanso tdf = final do timer
@@ -29,4 +30,5 @@ class tempo:
                 break
             if rminu == 60:
                 h =+ 1
+            print(rminu)
 
