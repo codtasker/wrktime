@@ -1,34 +1,20 @@
 import time
 from playsound import playsound
 class tempo:
-    def timer(tdt,tdd,tdf):
-        #tdt = tempo de trabalho tdd = tempo de descanso tdf = final do timer
+    def timer(timer):
         minu = 0
-        rminu = 0
-        c = 0
-        h = 0
         while True:
-            if h != tdf:
-                if minu != tdt and c == 0:
-                    print("f")
-                    time.sleep(60)
-                    minu =+ 1
-                    rminu =+ 1
-                elif c == 0:
-                    c = 1
-                    minu = 0
-                    print("y")
-                elif minu != tdd and c == 1:
-                    time.sleep(60)
-                    minu =+ 1
-                    rminu =+ 1
-                elif c == 1:
-                    c = 0
-                    minu = 0
-                    print("n")
+            if minu != timer:
+                time.sleep(60)
+                minu = minu + 1
+                print(minu," min")
             else:
+                playsound('alarme/alarme.mp3')
                 break
-            if rminu == 60:
-                h =+ 1
-            print(rminu)
-
+    def timercomparador(timer1,timer2):
+        tempo.timer(timer1)
+        tempo.timer(timer2)
+    def timercr(timer1,timer2,r):
+        for i in range(r):
+            tempo.timer(timer1)
+            tempo.timer(timer2)
