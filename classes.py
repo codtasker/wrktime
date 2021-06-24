@@ -5,7 +5,7 @@ import json
 
 with open('timer.json') as t:
     timers = json.load(t)
-
+time = timers["times"]
 
 class tempo:
     def timer(timer):
@@ -28,8 +28,8 @@ class tempo:
 
 class trabalho:
     def alterartimers(nome,t1,t2):
-        timers["times"].append({"i":len(timers[times])+1,"nome":nome,"tempo1":t1,"tempo2":t2})
-        print(timers["times"])
+        time.append({"i":len(timers[times])+1,"nome":nome,"tempo1":t1,"tempo2":t2})
+        print(time)
     def iniciarTimer(i,r):
         for t in timers["times"]:
             if i == t["i"]:
@@ -41,6 +41,5 @@ class ultilitarios:
     def linha():
         print("<------------------------------------------------------------------------------->")
 
-print(len(timers["times"]))
-print(type(timers["times"]))
-trabalho.alterartimers("normie",1,2)
+
+trabalho.alterartimers("jsontime",1,2)
