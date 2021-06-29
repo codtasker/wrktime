@@ -1,12 +1,10 @@
 #importando as classes que vou usar
 import classes as c
 
-
 #perguntando o modo que o usuario deseja
 while True:
     op = input('alarme ou modo trabalho(a = alarme r = rotina): ')
     if op == "a" or op == "r":break
-
 
 #modo alarme
 if op == "a":

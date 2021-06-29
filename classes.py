@@ -1,4 +1,3 @@
-from os import times
 import time
 from playsound import playsound
 import json
@@ -67,8 +66,12 @@ class trabalho:
         nomes = []
         for nome in timers['times']:
             nomes.append(nome['nome'])
+        print("lista para escolher o que deletar")
         for t in range(len(nomes)):
             print("i:",t,"nome: ",nomes[t])
-        selection = int(input("qual o indice do deletado: "))
+        while True:
+            print("obs: as opções ate 2 são protegidas e não são deletaveis")
+            selection = int(input("qual o indice do deletado: "))
+            if selection > 2: break
         timers['times'].pop(selection)
         ultilitarios.escrita()
