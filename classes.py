@@ -29,7 +29,7 @@ class tempo:
 class trabalho:
     def alterartimers(nome,t1,t2):
         local = len(timers["times"])+1
-        timers['times'].append({"i": f"{local}","nome":f"{nome}","tempo1": f"{t1}","tempo2": f"{t2}"})
+        timers['times'].append({"i": local,"nome":f"{nome}","tempo1": t1,"tempo2": t2})
         with open('timer.json','w') as t:
             json.dump(timers,t)
         print("feito!")
