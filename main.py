@@ -37,7 +37,7 @@ else:
             nome = input("digite o nome da nova rotina: ")
             t1 = int(input("digite o tempo da primeira tarefa: "))
             t2 = int(input("digite o tempo da segunda tarefa: "))
-            c.trabalho.alterartimers(nome,t1,t2)
+            c.trabalho.adicionatimer(nome,t1,t2)
 
         elif inic == "i":
             timers = c.trabalho.retornatimer()
@@ -52,5 +52,6 @@ else:
                     c.trabalho.iniciarTimer(i,r)
                     break
                 except:print("digite novamente (erro)")
-
+        elif inic == "d":
+            c.trabalho.deleta()
         else:break

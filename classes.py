@@ -5,7 +5,31 @@ import json
 
 with open('timer.json') as t:
     timers = json.load(t)
-timers["times"]
+
+class ultilitarios:
+    def linha():
+        print("<------------------------------------------------------------------------------->")
+    
+    def esctrab():
+        ultilitarios.linha()
+        while True:
+            inic = input("qual a opção que voce deseja:\np = programar nova rotina\ni = iniciar uma rotina pre programada\nd = deletar rotina\ns = sair\nR: ")
+            if inic == "p" or inic == "i" or inic == "s" or inic == "d":break
+        ultilitarios.linha()
+        return inic
+    
+    def esctimer():
+        ultilitarios.linha()
+        while True:
+            inic = input("qual a opção que voce deseja:\na = alarme simples\nd = alarme duplo\ndr = alarme duplo com repetição\ns = sair\nR: ")
+            if inic == "s" or inic == "d" or inic == "dr" or inic == "a":break
+        ultilitarios.linha()
+        return inic
+    
+    def escrita():
+        with open('timer.json','w') as t:
+            json.dump(timers,t)
+
 
 class tempo:
     def timer(timer):
@@ -27,11 +51,11 @@ class tempo:
             tempo.timer(timer2)
 
 class trabalho:
-    def alterartimers(nome,t1,t2):
-        local = len(timers["times"])+1
+    def adicionatimer(nome,t1,t2):
+        local = timers['end']+1
         timers['times'].append({"i": local,"nome":f"{nome}","tempo1": t1,"tempo2": t2})
-        with open('timer.json','w') as t:
-            json.dump(timers,t)
+        timers['end'] = local
+        ultilitarios.escrita()
         print("feito!")
     def iniciarTimer(i,r):
         for t in timers["times"]:
@@ -39,25 +63,12 @@ class trabalho:
                 tempo.timercr(t["tempo1"],t["tempo2"],r)
     def retornatimer():
         return timers["times"]
-
-class ultilitarios:
-    def linha():
-        print("<------------------------------------------------------------------------------->")
-    
-    def esctrab():
-        ultilitarios.linha()
-        while True:
-            inic = input("qual a opção que voce deseja:\np = programar nova rotina\ni = iniciar uma rotina pre programada\ns = sair\nR: ")
-            if inic == "p" or inic == "i" or inic == "s":break
-        ultilitarios.linha()
-        return inic
-    
-    def esctimer():
-        ultilitarios.linha()
-        while True:
-            inic = input("qual a opção que voce deseja:\na = alarme simples\nd = alarme duplo\ndr = alarme duplo com repetição\ns = sair\nR: ")
-            if inic == "s" or inic == "d" or inic == "dr" or inic == "a":break
-        ultilitarios.linha()
-        return inic
-
-
+    def deleta():
+        nomes = []
+        for nome in timers['times']:
+            nomes.append(nome['nome'])
+        for t in range(len(nomes)):
+            print("i:",t,"nome: ",nomes[t])
+        selection = int(input("qual o indice do deletado: "))
+        timers['times'].pop(selection)
+        ultilitarios.escrita()
