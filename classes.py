@@ -75,3 +75,4 @@ class trabalho:
             if selection > 2: break
         timers['times'].pop(selection)
         ultilitarios.escrita()
+        print("feito!")
