@@ -33,7 +33,8 @@ else:
         if inic == "p" or inic == "a":break
     c.ultilitarios.linha()
     if inic == "p":
-        pass
+        nome = input("digite o nome da nova rotina: ")
+        t1 = int(input("digite o tempo da primeira tarefa: "))
     else:
         timers = c.trabalho.retornatimer()
         print("lista de rotinas")
